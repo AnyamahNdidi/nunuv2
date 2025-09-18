@@ -146,7 +146,7 @@ export default function ContactPage() {
 
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2">
                 {/* Logo 1 - Amazon */}
-                <div className="rounded-lg bg-gray-700 flex items-center justify-center p-2">
+                <div className="rounded-lg  flex items-center justify-center p-2">
                   <img
                     src="/logo/amazom.png"
                     alt="Amazon logo"

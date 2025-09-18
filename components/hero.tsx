@@ -357,7 +357,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
                   transition={{ duration: 0.6 }}
                 >
                   <TrendingUp className="w-4 h-4 mr-2" />
-                  Transforming Financial Futures
+                  Empowering Marketing Growth
                 </motion.div>
 
                 <motion.h1

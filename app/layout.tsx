@@ -20,7 +20,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Nunu Consulting",
-  description: "Transforming Financial Futures",
+  description: "Empowering Marketing Growth",
   generator: "v0.dev",
 };
 // const Footer = dynamic(() => import('@/components/footer'), { ssr: false });
