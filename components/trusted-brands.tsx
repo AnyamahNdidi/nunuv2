@@ -29,7 +29,7 @@ const TrustedBrands = () => {
   ];
 
   return (
-    <section className="py-16 bg-[#F5F5F5] overflow-hidden">
+    <section className="py-16 opacity-60 0 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ const TrustedBrands = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F3D3E] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0A211F] mb-4">
             Trusted by 500+ of the world's top brands
           </h2>
         </motion.div>

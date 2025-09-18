@@ -39,8 +39,8 @@ export function Navigation({ activeSection }: NavigationProps) {
     { name: "Home", href: "/" },
     { name: "Services", href: "#services" },
     { name: "About", href: "/about" },
-    { name: "Success Stories", href: "#stories" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const colors = {
@@ -53,7 +53,7 @@ export function Navigation({ activeSection }: NavigationProps) {
   const navBgColor = isHoveringNav
     ? "bg-white"
     : isScrolled
-    ? "bg-[#0F3D3E]" // Changed from deepTeal to #0F172A
+    ? "bg-[#0A211F]" // Changed from deepTeal to #0F172A
     : "bg-transparent";
 
   const textColor = isHoveringNav ? `text-[${colors.deepTeal}]` : "text-white";

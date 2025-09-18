@@ -372,7 +372,7 @@ const IconCard: React.FC<IconCardProps> = memo(
 
     return (
       <div
-        className={`relative bg-[#0F3D3E] backdrop-blur-sm rounded-2xl p-8 transition-all duration-500 ease-out transform group cursor-pointer w-full min-h-[590px] hover:min-h-[550px] border border-[#A0F0D0]/20
+        className={`relative bg-[#0A211F] backdrop-blur-sm rounded-2xl p-8 transition-all duration-500 ease-out transform group cursor-pointer w-full min-h-[590px] hover:min-h-[550px] border border-[#A0F0D0]/20
         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
         ${
           activeCard === index
@@ -518,8 +518,8 @@ const AnimatedGoldIcons = forwardRef<HTMLDivElement, AnimatedGoldIconsProps>(
     }, []);
 
     return (
-      <div id="services" className="min-h-screen bg-[#0F3D3E] py-15 px-2">
-        <div className="min-h-screen bg-[#0F3D3E] py-20 px-2" ref={actualRef}>
+      <div id="services" className="min-h-screen bg-[#0A211F] py-15 px-2">
+        <div className="min-h-screen bg-[#0A211F] py-20 px-2" ref={actualRef}>
           <motion.div
             className="text-left mb-24 flex items-center justify-center max-w-[80rem] 
              max-md:flex-col max-md:px-4 max-md:text-center"
@@ -569,8 +569,8 @@ const AnimatedGoldIcons = forwardRef<HTMLDivElement, AnimatedGoldIconsProps>(
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 w-7xl mx-auto">
             <IconCard
               index={0}
-              title="Strategic Consulting"
-              description="Expert guidance to transform your business strategy and operations. Comprehensive market analysis,Custom strategic roadmaps, and actionable insights."
+              title="Product & Narrative Strategy"
+              description="We blend product positioning with compelling AI-driven storytelling to clarify value, shape market perception, and inspire action. From feature framing to founder voice, we turn technical depth into narratives that win customers and partners."
               delay={0}
               activeCard={activeCard}
               hasLoaded={hasLoaded}
@@ -582,8 +582,8 @@ const AnimatedGoldIcons = forwardRef<HTMLDivElement, AnimatedGoldIconsProps>(
 
             <IconCard
               index={1}
-              title="Digital Transformation"
-              description="Modernize your operations with cutting-edge digital solutions. Technology stack evaluation, Process automation strategies and Digital workflow implementation."
+              title="Go-to-Market Strategy"
+              description="Tailored go-to-market plans that drive traction. We translate technical value into buyer-ready messaging, define launch priorities, and equip your team with strategies to win early adopters."
               delay={500}
               activeCard={activeCard}
               hasLoaded={hasLoaded}
@@ -595,8 +595,8 @@ const AnimatedGoldIcons = forwardRef<HTMLDivElement, AnimatedGoldIconsProps>(
 
             <IconCard
               index={2}
-              title="Operational Excellence"
-              description="Optimize your business processes for maximum efficiency. Process optimization audits, Cost reduction strategies and Quality improvement plans"
+              title="Business Development"
+              description="We help AI-driven companies scale by identifying strategic partners, opening market channels, and shaping growth plays, blending relationship-building with AI insights to accelerate adoption and revenue"
               delay={1000}
               activeCard={activeCard}
               hasLoaded={hasLoaded}

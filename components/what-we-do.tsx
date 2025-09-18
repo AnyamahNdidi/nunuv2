@@ -39,7 +39,7 @@ const services = [
 
 export default function WhatWeDo() {
   return (
-    <section className="w-full min-h-auto px-4 sm:px-6 lg:px-8  bg-gradient-to-br from-[#C97B4C]/40 via-[#C97B4C]/30 p-8 md:p-12 border-t  transform-gpu max-w-full mx-auto">
+    <section className="w-full min-h-auto px-4 sm:px-6 lg:px-8 opacity-85  bg-gradient-to-br p-8 md:p-12   transform-gpu max-w-full mx-auto">
       <div className="max-w-[70rem] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,8 +48,8 @@ export default function WhatWeDo() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0F3D3E] mb-4">
-            {/* What we do */}
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0A211F] mb-2">
+            WHAT WE DO!!
           </h2>
         </motion.div>
 

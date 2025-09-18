@@ -3,12 +3,68 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Target, Users, Lightbulb, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { useState } from "react";
 
+const clientLogos = [
+  { name: "6sense", imageUrl: "/logo/6sense.png" },
+  { name: "Amazon", imageUrl: "/logo/amazom.png" },
+  { name: "colgate", imageUrl: "/logo/colgate.png" },
+  { name: "figma", imageUrl: "/logo/figma.png" },
+  { name: "google", imageUrl: "/logo/google.png" },
+  { name: "databricks", imageUrl: "/logo/databricks_logo_icon_249070.png" },
+];
 export default function AboutPage() {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6, ease: "easeOut" },
+  };
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const testimonials = [
+    {
+      quote:
+        "Tjimke's strategic guidance transformed our go-to-market approach. Her deep AI expertise helped us position our product in a way that resonated with both investors and customers.",
+      name: "Sarah Chen",
+      role: "CEO, AI Startup",
+    },
+    {
+      quote:
+        "Working with Nunu Consulting was a game-changer. They didn't just create marketing materials—they helped us understand our story and communicate our value clearly.",
+      name: "Marcus Rodriguez",
+      role: "Founder, TechVision AI",
+    },
+    {
+      quote:
+        "The strategic insights from Nunu Consulting helped us secure our Series A funding. Their market positioning expertise was invaluable.",
+      name: "Jennifer Park",
+      role: "CTO, DataFlow AI",
+    },
+    {
+      quote:
+        "Exceptional consulting that bridges the gap between technical innovation and market success. Highly recommend for any AI startup.",
+      name: "David Thompson",
+      role: "CEO, Neural Networks Inc",
+    },
+  ];
+
+  const testimonialsPerSlide = 2;
+  const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev: any) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev: any) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const getCurrentTestimonials = () => {
+    const startIndex = currentSlide * testimonialsPerSlide;
+    return testimonials.slice(startIndex, startIndex + testimonialsPerSlide);
   };
 
   const staggerContainer = {
@@ -22,21 +78,21 @@ export default function AboutPage() {
   const values = [
     {
       icon: Target,
-      title: "Strategic Focus",
+      title: "Proven AI Expertise",
       description:
-        "We help AI-first startups identify and execute winning go-to-market strategies.",
+        "9+ years at Google leading product marketing across AI perception, YouTube Ads, and Google Ads.",
     },
     {
       icon: Users,
-      title: "Partnership Approach",
+      title: "Founder-First Approach",
       description:
-        "We work as an extension of your team, not just external consultants.",
+        "We operate as your embedded strategy partner, not a distant consultant.",
     },
     {
       icon: Lightbulb,
-      title: "Innovation-Driven",
+      title: "Story + Strategy",
       description:
-        "We leverage cutting-edge marketing techniques and AI tools to drive results.",
+        "From positioning to launch playbooks, we connect vision with results that move markets.",
     },
     {
       icon: Heart,
@@ -49,7 +105,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[#F5F5F5]">
       {/* Hero Section with Image */}
-      <div className="bg-[#0F3D3E] min-h-3.5 pt-60 relative overflow-hidden">
+      <div className="bg-[#0A211F] min-h-3.5 pt-60 relative overflow-hidden">
         {/* Background Image with Gradient Overlay */}
         <div className="absolute inset-0">
           {/* Team photo - extends to full right side */}
@@ -62,7 +118,7 @@ export default function AboutPage() {
           </div>
 
           {/* Black gradient overlay that blends the image into the black background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F3D3E] via-[#0F3D3E]/70 to-[#0F3D3E]/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A211F] via-[#0A211F]/70 to-[#0A211F]/30"></div>
         </div>
 
         {/* Content */}
@@ -71,19 +127,29 @@ export default function AboutPage() {
             <div className="max-w-3xl">
               {/* Main Headline */}
               <h1 className="text-white text-3xl sm:text-xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-8">
-                We believe AI will
+                We don't just market AI,{" "}
+                <span className="italic">we make it matter.</span>
                 <br />
-                fundamentally transform the
-                <br />
-                way we work
+                {/* <br /> */}
               </h1>
 
               {/* Description */}
-              <p className="text-gray-300 text-lg lg:text-xl leading-relaxed mb-20 max-w-2xl">
+              <p className="text-gray-300 text-lg lg:text-xl leading-relaxed mb-8 max-w-2xl">
                 A boutique consulting firm dedicated to empowering AI-first
                 startups with strategic go-to-market planning and innovative
                 marketing solutions.
               </p>
+
+              <Button
+                size="lg"
+                className="group mb-16 relative overflow-hidden bg-[#A0F0D0] hover:bg-[#A0F0D0]/80 text-[#0F3D3E] px-8 py-4 text-lg font-semibold"
+              >
+                <span className="relative z-10 flex items-center font-bold">
+                  Contact Us
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-[#A0F0D0]/80 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </Button>
             </div>
           </div>
 
@@ -172,26 +238,25 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-[#0F3D3E] mb-6">
-                Who We Are
+                Why We Exist
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Nunu Consulting is a specialized boutique firm that partners
-                with AI-first startups to accelerate their growth through
-                strategic go-to-market planning and cutting-edge marketing
-                initiatives.
+                Brilliant technology isn’t enough. Without the right strategy
+                and story, even the best AI products struggle to break through.
               </p>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                We understand the unique challenges facing AI companies in
-                today's rapidly evolving landscape, and we provide the strategic
-                guidance and tactical execution needed to break through the
-                noise and achieve sustainable growth.
+                At Nunu Consulting, we bridge the gap between technical
+                brilliance and market adoption, shaping narratives, sharpening
+                positioning, and guiding go-to-market execution. You keep
+                building. We’ll make sure the world understands, wants, and
+                trusts what you’ve built.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              {/* <p className="text-lg text-gray-600 leading-relaxed">
                 Our approach combines deep industry expertise with innovative
                 methodologies, ensuring our clients not only reach their target
                 markets effectively but also build lasting competitive
                 advantages.
-              </p>
+              </p> */}
             </motion.div>
 
             <motion.div
@@ -215,7 +280,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Values Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0F3D3E]">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0A211F]">
         <div className="max-w-6xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -225,7 +290,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Our Mission & Values
+              Our Edge
             </h2>
             <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
               We exist to bridge the gap between groundbreaking AI innovation
@@ -281,6 +346,10 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F3D3E]/10 to-transparent" />
               </div>
+              <div className="text-center mt-4">
+                <h3 className="text-xl font-semibold text-[#0F3D3E]">Tjimke</h3>
+                <p className="text-gray-600">Founder & Principal Consultant</p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -292,24 +361,30 @@ export default function AboutPage() {
                 Meet Our Founder
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                With over 15 years of experience in strategic marketing and
-                business development, our founder recognized the unique
-                challenges facing AI startups in translating cutting-edge
-                technology into market success.
+                A trusted advisor to multiple early-stage AI founders, Tjimke
+                has helped products at Google and beyond find their market and
+                scale. She started Nunu Consulting to bring that same clarity
+                and momentum to the next generation of AI startups ensuring they
+                launch fast, resonate deeply, and grow sustainably.
               </p>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Having worked with Fortune 500 companies and high-growth
-                startups alike, she brings a rare combination of
-                enterprise-level strategic thinking and startup agility to every
-                client engagement.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Her passion for AI innovation and deep understanding of
-                go-to-market dynamics led to the creation of Nunu Consulting—a
-                firm specifically designed to help AI-first companies navigate
-                the complex journey from product-market fit to sustainable
-                growth.
-              </p>
+              <blockquote className="border-l-4 border-[#A0F0D0] pl-4 mb-8">
+                <p className="text-lg text-gray-600 italic">
+                  "AI must be built and marketed with clarity, responsibility,
+                  and transparency."
+                </p>
+              </blockquote>
+              <div className="flex space-x-4 mb-8">
+                <Link
+                  href="https://linkedin.com/in/tjimke"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0F3D3E] hover:text-[#0F3D3E]/80 transition-colors"
+                >
+                  <svg className="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </Link>
+              </div>
 
               <Link
                 href="/contact"
@@ -323,8 +398,128 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Trusted and endorsed by
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Leading AI companies and visionary founders trust Nunu Consulting
+              to transform their breakthrough innovations into market-leading
+              businesses.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
+            {clientLogos.map((client, index) => (
+              <div key={index} className="flex items-center justify-center p-4">
+                <img
+                  src={client.imageUrl}
+                  alt={`${client.name} logo`}
+                  className="w-24 h-12 object-contain hover:opacity-80 transition-opacity duration-300 filter grayscale"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-[#0A211F]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-16 text-white">
+            What Our Clients Say
+          </h2>
+
+          <div className="relative">
+            {/* Navigation arrows - only show if more than 2 testimonials */}
+            {testimonials.length > testimonialsPerSlide && (
+              <>
+                <button
+                  onClick={prevSlide}
+                  className="absolute -left-12 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center text-white transition-colors"
+                  aria-label="Previous testimonials"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute -right-12 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center text-white transition-colors"
+                  aria-label="Next testimonials"
+                >
+                  →
+                </button>
+              </>
+            )}
+
+            {/* Testimonials grid - shows 2 testimonials side by side */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {getCurrentTestimonials().map((testimonial, index) => (
+                <Card
+                  key={currentSlide * testimonialsPerSlide + index}
+                  className="bg-slate-800 border-slate-700"
+                >
+                  <CardContent className="p-8">
+                    <blockquote className="text-lg mb-6 text-gray-200 leading-relaxed">
+                      "{testimonial.quote}"
+                    </blockquote>
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-gray-600 rounded-full mr-4"></div>
+                      <div>
+                        <p className="font-semibold text-white">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-gray-400 text-sm">
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Slide indicators - only show if more than 2 testimonials */}
+            {testimonials.length > testimonialsPerSlide && (
+              <div className="flex justify-center mt-8 space-x-2">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentSlide
+                        ? "bg-emerald-500"
+                        : "bg-gray-600 hover:bg-gray-500"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-[#0A211F] text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-6 text-balance">
+            Ready to make your AI matter?
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            Let's work together to transform your innovative AI technology into
+            a market-leading solution.
+          </p>
+          <Button
+            size="lg"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white text-lg px-8 py-4"
+          >
+            Book a Consultation
+          </Button>
+        </div>
+      </section>
+
       {/* Founding Story Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      {/* <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             {...fadeInUp}
@@ -359,7 +554,7 @@ export default function AboutPage() {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -255,7 +255,7 @@ const AnimatedImageColumns = () => {
 };
 
 const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
-  const WORD_CYCLE = ["AI-Powered", "Strategic", "Growth", "Data-Driven"];
+  const WORD_CYCLE = ["Product", "Go-to-Market", "Growth"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   const internalRef = useRef<HTMLElement>(null);
@@ -293,13 +293,14 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen bg-[#0F3D3E] overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-br bg-[#0A211F] opacity-100 overflow-hidden"
     >
+      {/* <div className="absolute inset-0 bg-black opacity-70" /> */}
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-[#A0F0D0]/10 to-[#A0F0D0]/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-[#A0F0D0]/5 to-[#A0F0D0]/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-[#A0F0D0]/5 to-[#A0F0D0]/5 rounded-full blur-3xl"></div>
+        {/* <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-[#A0F0D0]/10 to-[#A0F0D0]/10 rounded-full blur-3xl animate-pulse"></div> */}
+        {/* <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-[#A0F0D0]/5 to-[#A0F0D0]/5 rounded-full blur-2xl animate-pulse delay-1000"></div> */}
+        {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-[#A0F0D0]/5 to-[#A0F0D0]/5 rounded-full blur-3xl"></div> */}
 
         <div className="absolute inset-0 opacity-10">
           <div
@@ -313,8 +314,8 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
       </div>
 
       <div className="hidden lg:block absolute top-0 right-0 w-[850px] h-full z-20">
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0F3D3E] via-[#0F3D3E]/80 to-transparent z-10" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0F3D3E] via-[#0F3D3E]/80 to-transparent z-10" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0A211F] via-[#0A211F]/80 to-transparent z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A211F] via-[#0A211F]/80 to-transparent z-10" />
         <div className="h-full overflow-hidden">
           <AnimatedImageColumns />
         </div>
@@ -402,7 +403,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
                   </div>
 
                   <div className="space-y-2 ">
-                    <span className="block">Financial Consulting</span>
+                    <span className="block">Strategy Partners </span>
                     {/* <span className="block bg-gradient-to-r from-[#A0F0D0] to-[#A0F0D0]/80 bg-clip-text text-transparent"></span> */}
                   </div>
                 </motion.h1>
@@ -418,14 +419,14 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
                   opacity: textFadeOut,
                 }}
               >
-                We help ambitious companies unlock their financial potential
-                through
+                Too many AI-first startups build game-changing technologies but
+                stall before reaching their audience.
                 <span className="font-semibold text-[#A0F0D0]">
                   {" "}
-                  data-driven strategies
-                </span>
-                , innovative investment solutions, and transformative growth
-                initiatives powered by cutting-edge AI.
+                  We shape positioning, sharpen your story,
+                </span>{" "}
+                and design go-to-market strategies that win early adopters, so
+                you launch with clarity and confidence.
               </motion.p>
 
               <motion.div
@@ -439,6 +440,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
                 }}
               >
                 <motion.div
+                  className="flex gap-4"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -452,6 +454,17 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
                     </span>
                     <div className="absolute inset-0 bg-[#A0F0D0]/80 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </Button>
+                  {/* 
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="group relative overflow-hidden border-[#A0F0D0] text-[#A0F0D0] hover:bg-[#A0F0D0]/10 px-8 py-4 text-lg font-semibold"
+                  >
+                    <span className="relative z-10 flex items-center">
+                      Explore More
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Button> */}
                 </motion.div>
               </motion.div>
             </motion.div>

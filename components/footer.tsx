@@ -26,19 +26,20 @@ export const Footer = forwardRef<HTMLElement, FooterIconsProps>(() => {
 
   const footerLinks = {
     Services: [
-      "Investment Strategy",
-      "Portfolio Management",
-      "Financial Planning",
-      "Risk Management",
+      "Product & Narrative Strategy",
+      "Go-to-Market Strategy",
+      "Business Development",
+      // "Risk Management",
     ],
-    Company: ["About Us", "Our Team", "Careers", "News"],
-    Resources: ["Case Studies", "Blog", "Whitepapers", "Events"],
-    Legal: [
-      "Privacy Policy",
-      "Terms of Service",
-      "Cookie Policy",
-      "Disclaimer",
-    ],
+    Resources: ["Portfolio"],
+    Company: ["About Us", "Contact"],
+
+    // Legal: [
+    //   "Privacy Policy",
+    //   "Terms of Service",
+    //   "Cookie Policy",
+    //   "Disclaimer",
+    // ],
   };
 
   const sectionContentVariants = {
@@ -57,10 +58,10 @@ export const Footer = forwardRef<HTMLElement, FooterIconsProps>(() => {
   return (
     <footer
       // ref={ref}
-      className="relative z-10 w-full scroll-snap-align-start bg-[#0F3D3E]   overflow-hidden" // Added overflow-hidden
+      className="relative z-10 w-full scroll-snap-align-start bg-[#0A211F]   overflow-hidden" // Added overflow-hidden
     >
       <motion.div
-        className="bg-[#0F3D3E] w-full backdrop-blur-md rounded-2xl p-8 md:p-12  " // Added mx-4
+        className="bg-[#0A211F] w-full backdrop-blur-md rounded-2xl p-8 md:p-12  " // Added mx-4
         style={{
           transformOrigin: "bottom center",
           maxWidth: "calc(100% - 0rem)", // Ensures it stays within viewport
@@ -76,8 +77,17 @@ export const Footer = forwardRef<HTMLElement, FooterIconsProps>(() => {
               <Logo width={120} height={48} className="mb-4" />
               <p className="text-white mb-6 leading-relaxed">
                 Transforming businesses through strategic financial consulting,
-                innovative solutions, and data-driven insights since 2008.
+                innovative solutions, and data-driven insights.
               </p>
+              <div className="text-white mb-6 leading-relaxed">
+                <p>123 Business Avenue</p>
+                <p>Suite 456</p>
+                <p>New York, NY 10001</p>
+              </div>
+              <div className="text-white mb-6 leading-relaxed">
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Email: contact@nunuconsulting.com</p>
+              </div>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -102,7 +112,7 @@ export const Footer = forwardRef<HTMLElement, FooterIconsProps>(() => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <h4 className="text-lg font-semibold mb-4 text-[rgb(var(--accent-gold))]">
+              <h4 className="text-lg font-semibold mb-4 text-white">
                 {category}
               </h4>
               <ul className="space-y-2">
@@ -110,7 +120,7 @@ export const Footer = forwardRef<HTMLElement, FooterIconsProps>(() => {
                   <li key={linkIndex}>
                     <a
                       href="#"
-                      className="text-white hover:text-[rgb(var(--accent-gold))] transition-colors"
+                      className="text-white/70 hover:text-[#A0F0D0] transition-colors"
                     >
                       {link}
                     </a>
