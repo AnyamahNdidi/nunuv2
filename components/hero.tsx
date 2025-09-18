@@ -43,8 +43,9 @@ const AnimatedImageColumns = () => {
             {[...Array(8)]
               .flatMap((_, i) => [
                 "/images/Audit_6-713x663.jpg",
-                "/images/show.png",
-                "/images/kim.png",
+                "/images/business-development-strategy-results-concept.jpg",
+                "/images/10550161.jpg",
+                // "/images/mszt_bl02_230116.jpg",
               ])
               .map((src, index) => (
                 <img
@@ -95,8 +96,8 @@ const AnimatedImageColumns = () => {
           >
             {[...Array(4)]
               .flatMap((_, i) => [
+                "/images/marketing-ideas-share-research-planning-concept.jpg",
                 "/images/56.jpg",
-                "/images/98.jpg",
                 "/images/about1.jpg",
               ])
               .map((src, index) => (
@@ -129,7 +130,7 @@ const AnimatedImageColumns = () => {
           >
             {[...Array(8)]
               .flatMap((_, i) => [
-                "/images/jojo.jpg",
+                "/images/OMHWPH0.jpg",
                 // "/images/22.jpg",
                 "/images/jim.png",
               ])
