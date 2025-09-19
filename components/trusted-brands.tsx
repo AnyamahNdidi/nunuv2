@@ -38,9 +38,9 @@ const TrustedBrands = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0A211F] mb-4">
+          {/* <h2 className="text-3xl md:text-4xl font-bold text-[#0A211F] mb-4">
             Trusted by 500+ of the world's top brands
-          </h2>
+          </h2> */}
         </motion.div>
 
         <div className="space-y-8">

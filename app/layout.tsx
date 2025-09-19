@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ScrollProgress } from "@/components/scroll-progress";
+// import { ScrollProgress } from "@/components/scroll-progress";
 import Navigation from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import dynamic from "next/dynamic";
@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={roboto.className}>
       <body>
         <ThemeProvider defaultTheme="dark">
-          <ScrollProgress />
+          {/* <ScrollProgress /> */}
           <Navigation activeSection="" />
           {children}
           <Footer />

@@ -10,7 +10,7 @@ import { Testimonials } from "@/components/testimonials";
 import { Contact } from "@/components/contact";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { ScrollProgress } from "@/components/scroll-progress";
+// import { ScrollProgress } from "@/components/scroll-progress";
 import { Stats } from "@/components/stats";
 import { VideoBackground } from "@/components/video-background";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";

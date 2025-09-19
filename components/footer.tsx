@@ -76,8 +76,9 @@ export const Footer = forwardRef<HTMLElement, FooterIconsProps>(() => {
             >
               <Logo width={120} height={48} className="mb-4" />
               <p className="text-white mb-6 leading-relaxed">
-                Transforming businesses through strategic financial consulting,
-                innovative solutions, and data-driven insights.
+                Empowering brands with creative marketing strategies, innovative
+                campaigns, and data-driven insights to connect with audiences
+                and drive growth.
               </p>
               <div className="text-white mb-6 leading-relaxed">
                 <p>123 Business Avenue</p>

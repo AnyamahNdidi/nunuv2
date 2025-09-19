@@ -14,7 +14,6 @@ interface HeroProps {
   scrollY?: any;
 }
 
-// ✅ Move AnimatedImageColumns OUTSIDE the Hero component
 const AnimatedImageColumns = () => {
   return (
     <motion.div
@@ -23,9 +22,9 @@ const AnimatedImageColumns = () => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, delay: 0.4 }}
     >
-      {/* Desktop Layout */}
-      <div className="hidden lg:block absolute right-0 top-0 w-[780px] h-screen overflow-hidden">
-        <div className="flex gap-5 h-full lg:pr-6 sm:pr-0">
+      {/* Desktop Layout (1280px and above) */}
+      <div className="hidden xl:block absolute right-0 top-0 w-[45vw] max-w-[780px] h-screen overflow-hidden">
+        <div className="flex gap-5 h-full lg:pr-6">
           {/* Column 1 */}
           <motion.div
             className="flex flex-col gap-4"
@@ -45,7 +44,6 @@ const AnimatedImageColumns = () => {
                 "/images/Audit_6-713x663.jpg",
                 "/images/business-development-strategy-results-concept.jpg",
                 "/images/10550161.jpg",
-                // "/images/mszt_bl02_230116.jpg",
               ])
               .map((src, index) => (
                 <img
@@ -54,40 +52,14 @@ const AnimatedImageColumns = () => {
                   alt="Financial consulting"
                   className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
                   style={{
-                    width: "320px",
+                    width: "100%",
+                    maxWidth: "320px",
                     height: `${280 + (index % 4) * 40}px`,
-                    objectFit: "contain",
+                    objectFit: "cover",
                   }}
                 />
               ))}
           </motion.div>
-
-          {/* <div
-            className="flex flex-col gap-4 animate-scroll-vertical"
-            style={{ animationDuration: "25s", animationDelay: "0s" }}
-          >
-            {[...Array(4)]
-              .flatMap((_, i) => [
-                "/images/Audit_6-713x663.jpg",
-                "/images/show.png",
-                "/images/kim.png",
-                "/images/Audit_6-713x663.jpg",
-                "/images/show.png",
-                "/images/kim.png",
-              ])
-              .map((src, index) => (
-                <img
-                  key={index}
-                  src={src || "/placeholder.svg"}
-                  alt="Financial consulting"
-                  className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
-                  style={{
-                    width: "330px",
-                    height: `${450 + (index % 3) * 30}px`,
-                  }}
-                />
-              ))}
-          </div> */}
 
           {/* Column 2 */}
           <div
@@ -107,8 +79,10 @@ const AnimatedImageColumns = () => {
                   alt="AI technology"
                   className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
                   style={{
-                    width: "330px",
+                    width: "100%",
+                    maxWidth: "330px",
                     height: `${450 + (index % 3) * 30}px`,
+                    objectFit: "cover",
                   }}
                 />
               ))}
@@ -129,11 +103,7 @@ const AnimatedImageColumns = () => {
             }}
           >
             {[...Array(8)]
-              .flatMap((_, i) => [
-                "/images/OMHWPH0.jpg",
-                // "/images/22.jpg",
-                "/images/jim.png",
-              ])
+              .flatMap((_, i) => ["/images/OMHWPH0.jpg", "/images/jim.png"])
               .map((src, index) => (
                 <img
                   key={index}
@@ -141,40 +111,19 @@ const AnimatedImageColumns = () => {
                   alt="Business growth"
                   className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
                   style={{
-                    width: "330px",
+                    width: "100%",
+                    maxWidth: "330px",
                     height: `${260 + (index % 6) * 50}px`,
+                    objectFit: "cover",
                   }}
                 />
               ))}
           </motion.div>
-          {/* <div
-            className="flex flex-col gap-4 animate-scroll-vertical"
-            style={{ animationDuration: "30s", animationDelay: "-8s" }}
-          >
-            {[...Array(4)]
-              .flatMap((_, i) => [
-                "/placeholder.svg?height=370&width=480",
-                "/placeholder.svg?height=385&width=490",
-                "/images/jim.png",
-              ])
-              .map((src, index) => (
-                <img
-                  key={index}
-                  src={src || "/placeholder.svg"}
-                  alt="Business growth"
-                  className="rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
-                  style={{
-                    width: "330px",
-                    height: `${400 + (index % 3) * 15}px`,
-                  }}
-                />
-              ))}
-          </div> */}
         </div>
       </div>
 
-      {/* Mobile Layout */}
-      <div className="lg:hidden mt-12 rounded-xl overflow-hidden">
+      {/* Tablet and Small Desktop Layout (768px - 1279px) */}
+      <div className="hidden md:block xl:hidden mt-12 rounded-xl overflow-hidden">
         <div className="space-y-6">
           {/* Row 1 */}
           <motion.div
@@ -190,7 +139,7 @@ const AnimatedImageColumns = () => {
               },
             }}
           >
-            {[...Array(20)]
+            {[...Array(10)]
               .flatMap((_, i) => [
                 "/images/Audit_6-713x663.jpg",
                 "/images/show.png",
@@ -205,8 +154,8 @@ const AnimatedImageColumns = () => {
                   alt="Financial consulting"
                   className="rounded-xl shadow-md flex-shrink-0"
                   style={{
-                    width: "130px",
-                    height: "200px",
+                    width: "200px",
+                    height: "250px",
                     objectFit: "cover",
                   }}
                 />
@@ -227,7 +176,7 @@ const AnimatedImageColumns = () => {
               },
             }}
           >
-            {[...Array(20)]
+            {[...Array(10)]
               .flatMap((_, i) => [
                 "/images/jim.png",
                 "/images/jojo.jpg",
@@ -242,8 +191,87 @@ const AnimatedImageColumns = () => {
                   alt="Business technology"
                   className="rounded-xl shadow-md flex-shrink-0 object-cover"
                   style={{
-                    width: "130px",
-                    height: "210px",
+                    width: "200px",
+                    height: "260px",
+                    objectFit: "cover",
+                  }}
+                />
+              ))}
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Mobile Layout (below 768px) */}
+      <div className="md:hidden mt-8 rounded-xl overflow-hidden">
+        <div className="space-y-4">
+          {/* Row 1 */}
+          <motion.div
+            className="flex gap-3"
+            initial={{ x: -100 }}
+            animate={{ x: [0, -2000] }}
+            transition={{
+              x: {
+                duration: 50,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "linear",
+              },
+            }}
+          >
+            {[...Array(12)]
+              .flatMap((_, i) => [
+                "/images/Audit_6-713x663.jpg",
+                "/images/show.png",
+                "/images/kim.png",
+                "/images/jim.png",
+                "/images/jojo.jpg",
+              ])
+              .map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt="Financial consulting"
+                  className="rounded-lg shadow-md flex-shrink-0"
+                  style={{
+                    width: "120px",
+                    height: "160px",
+                    objectFit: "cover",
+                  }}
+                />
+              ))}
+          </motion.div>
+
+          {/* Row 2 */}
+          <motion.div
+            className="flex gap-3"
+            initial={{ x: 0 }}
+            animate={{ x: [-2000, 0] }}
+            transition={{
+              x: {
+                duration: 55,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "linear",
+              },
+            }}
+          >
+            {[...Array(12)]
+              .flatMap((_, i) => [
+                "/images/jim.png",
+                "/images/jojo.jpg",
+                "/images/Audit_6-713x663.jpg",
+                "/images/show.png",
+                "/images/kim.png",
+              ])
+              .map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt="Business technology"
+                  className="rounded-lg shadow-md flex-shrink-0 object-cover"
+                  style={{
+                    width: "120px",
+                    height: "170px",
                     objectFit: "cover",
                   }}
                 />
@@ -296,13 +324,8 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
       ref={sectionRef}
       className="relative min-h-screen bg-gradient-to-br bg-[#0A211F] opacity-100 overflow-hidden"
     >
-      {/* <div className="absolute inset-0 bg-black opacity-70" /> */}
       {/* Background elements */}
       <div className="absolute inset-0">
-        {/* <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-[#A0F0D0]/10 to-[#A0F0D0]/10 rounded-full blur-3xl animate-pulse"></div> */}
-        {/* <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-[#A0F0D0]/5 to-[#A0F0D0]/5 rounded-full blur-2xl animate-pulse delay-1000"></div> */}
-        {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-[#A0F0D0]/5 to-[#A0F0D0]/5 rounded-full blur-3xl"></div> */}
-
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -314,7 +337,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
         </div>
       </div>
 
-      <div className="hidden lg:block absolute top-0 right-0 w-[850px] h-full z-20">
+      <div className="hidden xl:block absolute top-0 right-0 w-[850px] h-full z-20">
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0A211F] via-[#0A211F]/80 to-transparent z-10" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0A211F] via-[#0A211F]/80 to-transparent z-10" />
         <div className="h-full overflow-hidden">
@@ -322,7 +345,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-col lg:block">
+      <div className="relative z-10 flex flex-col">
         {/* Text content */}
         <motion.div
           initial="hidden"
@@ -340,7 +363,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
               },
             },
           }}
-          className="container mx-auto px-6 py-20 lg:py-20"
+          className="container mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20"
           style={{
             y: slideOut,
             opacity: fadeOut,
@@ -348,26 +371,26 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
             transformOrigin: "top center",
           }}
         >
-          <div className="max-w-4xl lg:min-h-[80vh] flex items-center">
-            <motion.div className="space-y-6 pt-4 max-w-2xl">
-              <div className="space-y-4">
+          <div className="max-w-4xl md:max-w-2xl xl:max-w-4xl lg:min-h-[50vh] xl:min-h-[80vh] flex items-center">
+            <motion.div className="space-y-4 md:space-y-6 pt-2 md:pt-4 max-w-2xl">
+              <div className="space-y-3 md:space-y-4">
                 <motion.div
-                  className="inline-flex items-center px-4 py-2 bg-[#A0F0D0]/10 rounded-full text-[#A0F0D0] font-medium text-sm border border-[#A0F0D0]/20 backdrop-blur-sm"
+                  className="inline-flex items-center px-3 py-1 md:px-4 md:py-2 bg-[#A0F0D0]/10 rounded-full text-[#A0F0D0] font-medium text-xs md:text-sm border border-[#A0F0D0]/20 backdrop-blur-sm"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <TrendingUp className="w-4 h-4 mr-2" />
+                  <TrendingUp className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
                   Empowering Marketing Growth
                 </motion.div>
 
                 <motion.h1
-                  className="text-5xl lg:text-7xl font-light text-white leading-tight"
+                  className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  <div className="relative h-20 lg:h-24 overflow-hidden mb-4">
+                  <div className="relative h-16 sm:h-20 lg:h-24 overflow-hidden mb-3 md:mb-4">
                     <AnimatePresence mode="wait">
                       <motion.span
                         key={currentWordIndex}
@@ -396,22 +419,23 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
                             ease: "linear",
                           },
                         }}
-                        className="absolute inset-0 font-medium"
+                        className="absolute inset-0 font-medium text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
                       >
                         {WORD_CYCLE[currentWordIndex]}
                       </motion.span>
                     </AnimatePresence>
                   </div>
 
-                  <div className="space-y-2 ">
-                    <span className="block">Strategy Partners </span>
-                    {/* <span className="block bg-gradient-to-r from-[#A0F0D0] to-[#A0F0D0]/80 bg-clip-text text-transparent"></span> */}
+                  <div className="space-y-1 md:space-y-2">
+                    <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+                      Strategy Partners{" "}
+                    </span>
                   </div>
                 </motion.h1>
               </div>
 
               <motion.p
-                className="text-xl text-slate-300 leading-relaxed max-w-2xl"
+                className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -431,7 +455,7 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
               </motion.p>
 
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 pt-4"
+                className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2 md:pt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -441,42 +465,32 @@ const Hero = forwardRef<HTMLElement, HeroProps>(({ scrollY }, ref) => {
                 }}
               >
                 <motion.div
-                  className="flex gap-4"
+                  className="flex gap-3 md:gap-4"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Button
                     size="lg"
-                    className="group relative overflow-hidden bg-[#A0F0D0] hover:bg-[#A0F0D0]/80 text-[#0F3D3E] px-8 py-4 text-lg font-semibold"
+                    className="group relative overflow-hidden bg-[#2FEAA8] hover:bg-[#A0F0D0]/80 text-[#0F3D3E] px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold"
                   >
                     <span className="relative z-10 flex items-center font-bold">
                       Book Consultation
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-1 md:ml-2 h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <div className="absolute inset-0 bg-[#A0F0D0]/80 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </Button>
-                  {/* 
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="group relative overflow-hidden border-[#A0F0D0] text-[#A0F0D0] hover:bg-[#A0F0D0]/10 px-8 py-4 text-lg font-semibold"
-                  >
-                    <span className="relative z-10 flex items-center">
-                      Explore More
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </Button> */}
                 </motion.div>
               </motion.div>
             </motion.div>
           </div>
         </motion.div>
 
-        <motion.div className="lg:hidden relative z-10 px-6 pb-20">
+        {/* Images for tablet and mobile */}
+        <div className="xl:hidden relative z-10 px-4 sm:px-6 pb-12 md:pb-16">
           <div className="h-auto overflow-hidden">
             <AnimatedImageColumns />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
